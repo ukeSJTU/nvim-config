@@ -78,7 +78,11 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets' },
+        -- Only enable lazydev for Lua files
+        per_filetype = {
+          lua = { 'lsp', 'path', 'snippets', 'lazydev' },
+        },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
